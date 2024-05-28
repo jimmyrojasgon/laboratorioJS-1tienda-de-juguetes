@@ -10,11 +10,11 @@
     compras menor o igual de 10 cantidades hasta mayor o igual a 20 cantidades con el 7% de descuento <br>
     compras mayores a 20 cantidades con el 9% de descuento <br>
 
-    <h1 id="Monopolio">Monopolio</h1><input type="number" id="N_cantidad"><br>
-    <h1>Ajedrez</h1><input type="text" id="N_cantidad"><br>
-    <h1>Lego</h1><input type="text" id="N_cantidad"><br>
-    <h1>Dama</h1><input type="text" id="N_cantidad"><br>
-    <h1>Laberinto</h1><input type="text" id="N_cantidad"><br>
+    <h1 id="Monopolio">Monopolio</h1><input type="number" id="preciomono"><br>
+    <h1>Ajedrez</h1><input type="text" id="precioaje"><br>
+    <h1>Lego</h1><input type="text" id="preciole"><br>
+    <h1>Dama</h1><input type="text" id="precioda"><br>
+    <h1>Laberinto</h1><input type="text" id="preciolabe"><br>
     <br>
     <button id="total" onclick="calcular()" >Calcular</button>
     <br>
@@ -24,16 +24,21 @@
         function calcular(){
 	    //creacion de variabloes en donde se van a almacenar los datos capturados en las cajas de texto
         var Monopolio=70.99, Ajedrez=78.99, Lego=100.99, Dama=58.50, Laberinto=35.00;
-        var N_canti =0;
+        var preciomono=0, precioaje=0, preciole=0, precioda=0, preciolabe=0;
         var desc =0;
         var total =0;
         var compra =0;
 
-        N_canti = document.getElementById('N_cantidad').value;
+        preciomono = document.getElementById('precioaje').value;
+        precioaje = document.getElementById('precioaje') .value;   
+        preciolabe = document.getElementById('preciolabe').value;
+        preciole = document.getElementById('preciole').value;
+        precioda = document.getElementById('precioda').value;
 
-        compra = Monopolio * N_canti
-        desc = compra * 0.35;
-        total = compra - desc;
+        compra = (Monopolio*preciomono)+(Ajedrez*precioaje)+(Lego*preciole)+(Dama*precioda)+(Laberinto*preciolabe)
+        total = compra - (desc*compra);
+        
+        if(10>compra && 0< compra){desc=3.5;}else if(10<= compra && 20>= compra){desc=7;}
 
         //Asignación del valor de la variable total a la caja de texto total
         document.getElementById('total').value=total;
