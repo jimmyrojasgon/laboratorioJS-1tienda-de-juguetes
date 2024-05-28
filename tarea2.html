@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tienda juguetes</title>
+</head>
+<body>
+    Compras mayores hasta de 9 con el descuento del 3.5% descuento <br>
+    compras menor o igual de 10 cantidades hasta mayor o igual a 20 cantidades con el 7% de descuento <br>
+    compras mayores a 20 cantidades con el 9% de descuento <br>
+
+    <h1 id="Monopolio">Monopolio</h1><input type="number" id="N_cantidad"><br>
+    <h1>Ajedrez</h1><input type="text" id="N_cantidad"><br>
+    <h1>Lego</h1><input type="text" id="N_cantidad"><br>
+    <h1>Dama</h1><input type="text" id="N_cantidad"><br>
+    <h1>Laberinto</h1><input type="text" id="N_cantidad"><br>
+    <br>
+    <button id="total" onclick="calcular()" >Calcular</button>
+    <br>
+    <p id="total"></p>
+
+    <script type="text/javascript">
+        function calcular(){
+	    //creacion de variabloes en donde se van a almacenar los datos capturados en las cajas de texto
+        var Monopolio=70.99, Ajedrez=78.99, Lego=100.99, Dama=58.50, Laberinto=35.00;
+        var N_canti =0;
+        var desc =0;
+        var total =0;
+        var compra =0;
+
+        N_canti = document.getElementById('N_cantidad').value;
+
+        compra = Monopolio * N_canti
+        desc = compra * 0.35;
+        total = compra - desc;
+
+        //Asignación del valor de la variable total a la caja de texto total
+        document.getElementById('total').value=total;
+        console.log(total);
+        
+        }
+
+    </script>
+    
+</body>
+</html>
